@@ -1,0 +1,4 @@
+ "use client";
+import {motion} from "framer-motion";
+const pos=[ [50,15],[24,42],[76,42],[15,78],[50,78],[85,78],[50,50],[8,15],[92,15] ];
+export default function GraphVisualizer({data={vertices:[],edges:[]},currentStep}){const vs=data.vertices||[],es=data.edges||[],p=Object.fromEntries(vs.map((v,i)=>[v,pos[i%pos.length]])),active=currentStep?.state?.current,visited=currentStep?.state?.visited||[];return <div className="stage"><svg viewBox="0 0 100 100" className="graph">{es.map(([a,b],i)=>p[a]&&p[b]?<line key={i} x1={p[a][0]} y1={p[a][1]} x2={p[b][0]} y2={p[b][1]}/>:null)}{vs.map(v=><g key={v}><motion.circle initial={{scale:0}} animate={{scale:1}} cx={p[v][0]} cy={p[v][1]} r="6" className={active===v?"current":visited.includes(v)?"visited":""}/><text x={p[v][0]} y={p[v][1]+1.4} textAnchor="middle">{v}</text></g>)}</svg>{!vs.length&&<p>Add vertices to create a graph</p>}</div>}

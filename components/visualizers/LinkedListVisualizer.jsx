@@ -1,0 +1,3 @@
+ "use client";
+import {motion,AnimatePresence} from "framer-motion";
+export default function LinkedListVisualizer({data=[]}){return <div className="stage"><div className="list"><AnimatePresence initial={false}>{data.map((v,i)=><motion.div layout key={`${i}-${v}`} initial={{opacity:0,scale:.8}} animate={{opacity:1,scale:1}} exit={{opacity:0,scale:.8}} className="node">{v}{i<data.length-1&&<span> → </span>}</motion.div>)}</AnimatePresence>{data.length>0&&<small>NULL</small>}{!data.length&&<p>List is empty</p>}</div></div>}

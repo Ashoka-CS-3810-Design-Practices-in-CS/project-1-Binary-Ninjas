@@ -1,0 +1,3 @@
+ "use client";
+import {motion,AnimatePresence} from "framer-motion";
+export default function QueueVisualizer({data=[]}){return <div className="stage"><div className="queue"><small>FRONT</small><AnimatePresence initial={false}>{data.map((v,i)=><motion.div layout key={`${i}-${v}`} initial={{opacity:0,x:20}} animate={{opacity:1,x:0}} exit={{opacity:0,x:-20}} className="block">{v}</motion.div>)}</AnimatePresence><small>REAR</small>{!data.length&&<p>Queue is empty</p>}</div></div>}
