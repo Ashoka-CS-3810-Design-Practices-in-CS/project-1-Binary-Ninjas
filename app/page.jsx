@@ -15,7 +15,7 @@ import AnimationController from "../components/animation/AnimationController";
 import LinkedListVisualizer from "../components/visualizers/LinkedListVisualizer";
 import StackVisualizer from "../components/visualizers/StackVisualizer";
 import QueueVisualizer from "../components/visualizers/QueueVisualizer";
-import BSTVisualizer from "../components/visualizers/BSTVisualizer";
+import BinaryTreeVisualizer from "../components/visualizers/BinaryTreeVisualizer";
 import GraphVisualizer from "../components/visualizers/GraphVisualizer";
 import HeapVisualizer from "../components/visualizers/HeapVisualizer";
 
@@ -23,7 +23,7 @@ const views = {
   "Linked List": LinkedListVisualizer,
   Stack: StackVisualizer,
   Queue: QueueVisualizer,
-  BST: BSTVisualizer,
+  "Binary Tree": BinaryTreeVisualizer,   
   Graph: GraphVisualizer,
   Heap: HeapVisualizer,
 };
@@ -422,7 +422,7 @@ export default function Home() {
 
       setComplexity({
         time:
-          type === "BST"
+          type === "Binary Tree"
             ? "O(log n) average, O(n) worst"
             : "O(n)",
         space: "O(1)",
@@ -481,7 +481,7 @@ export default function Home() {
     setComplexity({
       time: ["Stack", "Queue"].includes(type)
         ? "O(1)"
-        : type === "BST"
+        : type === "Binary Tree"
           ? "O(log n) average, O(n) worst"
           : "O(n)",
       space: "O(1)",

@@ -1,4 +1,4 @@
-// File: C:\Users\Bhumi Bhalekar\Downloads\dsa-visualizer-frontend\app\layout.jsx
+// File: /Users/hb/Desktop/DPCS/Data_Structure_Visualizer/app/layout.jsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
