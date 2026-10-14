@@ -1,1 +1,0 @@
-export default function PseudocodePanel({lines=[]}){return <section className="panel"><h3>06　Pseudocode</h3>{lines.length?<pre>{lines.map((x,i)=>`${String(i+1).padStart(2,"0")}  ${x}`).join("\n")}</pre>:<p className="muted">Pseudocode will appear here.</p>}</section>}

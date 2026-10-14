@@ -1,3 +1,0 @@
- "use client";
-import {motion} from "framer-motion";
-export default function HeapVisualizer({data=[]}){let levels=[],i=0,n=1;while(i<data.length){levels.push(data.slice(i,i+n));i+=n;n*=2}return <div className="stage heap">{levels.length?levels.map((row,j)=><div className="heaprow" key={j}>{row.map((v,k)=><motion.div layout initial={{scale:.8}} animate={{scale:1}} className="treenode" key={`${j}-${k}-${v}`}>{v}</motion.div>)}</div>):<p>Heap is empty</p>}</div>}

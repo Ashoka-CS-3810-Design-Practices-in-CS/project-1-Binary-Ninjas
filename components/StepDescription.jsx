@@ -1,1 +1,0 @@
-export default function StepDescription({step}){return <section className="panel"><h3>05　Current step</h3>{step?<><b>{step.title}</b><p>{step.description}</p></>:<p className="muted">Choose an operation to see its description.</p>}</section>}
