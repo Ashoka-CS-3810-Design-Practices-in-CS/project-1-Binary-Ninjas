@@ -34,7 +34,7 @@ export default function HomePage() {
         </Link>
 
         <p className="mt-10 text-sm text-muted-foreground text-black">
-          More features coming soon.
+          More features coming soon. Stay Tuned!
         </p>
       </div>
     </main>
