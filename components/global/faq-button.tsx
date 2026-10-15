@@ -52,7 +52,7 @@ export default function FAQ() {
         type="button"
         onClick={() => setOpen(true)}
         aria-label="Open FAQ"
-        className="fixed bottom-6 left-6 z-50 flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-lg transition hover:scale-105 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+        className="fixed bottom-6 left-6 z-50 flex items-center gap-2 rounded-full bg-yellow-400 px-5 py-3 text-sm font-semibold text-primary-foreground shadow-lg transition hover:scale-105 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
       >
         <span aria-hidden="true">❓</span>
         FAQ
