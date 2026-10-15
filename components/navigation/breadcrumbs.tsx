@@ -1,4 +1,3 @@
-
 "use client"
 
 import { ModeToggle } from "@/components/global/mode-toggle"
@@ -59,14 +58,6 @@ const routes = {
     name: "Heap",
     path: "/visualizer/heap",
   },
-  "/visualizer/huffman": {
-    name: "Huffman Coding",
-    path: "/visualizer/huffman",
-  },
-  "/visualizer/dijkstra": {
-    name: "Dijkstra's Algorithm",
-    path: "/visualizer/dijkstra",
-  },
 }
 
 export function Breadcrumbs({
@@ -81,17 +72,19 @@ export function Breadcrumbs({
     const items = []
     let currentPath = ""
 
-    // Always show Home
+    // Home breadcrumb
     items.push(
       <BreadcrumbItem key="home">
         {segments.length === 0 ? (
-          <BreadcrumbPage className="home-link text-foreground">
+          <BreadcrumbPage
+            className="home-link cursor-pointer rounded-md px-2 py-1 text-foreground transition-colors hover:bg-accent hover:text-accent-foreground active:bg-accent active:text-accent-foreground"
+          >
             Home
           </BreadcrumbPage>
         ) : (
           <BreadcrumbLink
             href="/"
-            className="home-link text-foreground hover:text-foreground"
+            className="home-link cursor-pointer rounded-md px-2 py-1 text-foreground transition-colors hover:bg-accent hover:text-accent-foreground active:bg-accent active:text-accent-foreground"
           >
             Home
           </BreadcrumbLink>
@@ -99,9 +92,10 @@ export function Breadcrumbs({
       </BreadcrumbItem>
     )
 
-    // Add route breadcrumbs
+    // Route breadcrumbs
     segments.forEach((segment, index) => {
       currentPath += `/${segment}`
+
       const route = routes[currentPath as keyof typeof routes]
 
       if (!route) return
@@ -119,7 +113,10 @@ export function Breadcrumbs({
       } else {
         items.push(
           <BreadcrumbItem key={currentPath}>
-            <BreadcrumbLink href={route.path}>
+            <BreadcrumbLink
+              href={route.path}
+              className="cursor-pointer rounded-md px-2 py-1 transition-colors hover:bg-accent hover:text-accent-foreground active:bg-accent active:text-accent-foreground"
+            >
               {route.name}
             </BreadcrumbLink>
           </BreadcrumbItem>
@@ -133,7 +130,7 @@ export function Breadcrumbs({
   return (
     <header className="sticky top-0 z-50 flex h-20 shrink-0 items-center gap-2 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="flex w-full items-center gap-2 px-4">
-        <SidebarTrigger className="-ml-1 text-foreground hover:text-foreground dark:text-white dark:hover:text-white" />
+        <SidebarTrigger className="-ml-1 cursor-pointer text-foreground hover:text-foreground dark:text-white dark:hover:text-white" />
 
         <Separator orientation="vertical" className="mr-2 h-4" />
 
