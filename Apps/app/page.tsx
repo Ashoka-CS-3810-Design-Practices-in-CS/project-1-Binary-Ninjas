@@ -1,20 +1,23 @@
 export default function VisualizersPage() {
   return (
-    <div className="valley-scene">
+    <div
+      className="valley-scene relative overflow-hidden"
+      style={{ height: "calc(100svh - 9rem)", minHeight: "520px" }}
+    >
       {/* Title + welcome message at the top of the page */}
-      <div className="relative z-10 mx-auto max-w-xl px-6 pt-10 text-center">
-        <h1 className="text-3xl font-bold text-white sm:text-4xl">
+      <div className="relative z-10 mx-auto max-w-2xl px-6 pt-4 text-center sm:pt-6">
+        <h1 className="text-center text-4xl font-extrabold text-white sm:text-5xl">
           DSA Visualizers
         </h1>
 
-        <h2 className="mt-8 text-2xl font-bold text-white">
+        <h2 className="mt-8 text-2xl font-bold text-white sm:mt-10 sm:text-3xl">
           Hey, fellow ninja! 👋
         </h2>
-        <p className="mt-3 leading-7 text-white/80">
+        <p className="mt-3 text-base leading-7 text-white/80 sm:text-lg sm:leading-8">
           Ready to master Data Structures and Algorithms? Choose a data
           structure from the sidebar and let&apos;s start exploring!
         </p>
-        <p className="mt-3 text-sm font-semibold text-white/60">
+        <p className="mt-3 text-base font-semibold text-white/60">
           Your Binary Ninjas team
         </p>
       </div>
@@ -114,5 +117,5 @@ export default function VisualizersPage() {
         </div>
       </div>
     </div>
-  );
+  )
 }

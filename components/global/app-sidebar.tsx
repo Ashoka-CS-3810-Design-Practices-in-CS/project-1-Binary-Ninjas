@@ -1,11 +1,8 @@
-
 "use client"
-import { ModeToggle } from "@/components/global/mode-toggle"
 
 import {
   Binary,
   Database,
-  BrainCircuit,
   TreePine,
   List,
   SquareChevronLeft,
@@ -72,7 +69,11 @@ export function AppSidebar() {
     <Sidebar>
       <SidebarHeader>
         <div className="flex items-center gap-2 border-b px-6 py-4">
-          <BrainCircuit className="h-6 w-6" />
+          <img
+            src="/icon.png"
+            alt="Data Structure Visualizer logo"
+            className="h-9 w-9 rounded-full object-cover"
+          />
           <h1 className="text-sm font-semibold">
             Data Structure Visualizer
           </h1>
