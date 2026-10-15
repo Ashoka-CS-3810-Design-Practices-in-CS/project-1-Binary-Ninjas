@@ -8,6 +8,8 @@ import {
   getTreeRoot,
 } from "./BT-operation";
 
+import type { TreeNode } from "./type";
+
 describe("binary search tree operations", () => {
   const makeTree = () => {
     let tree = insertTree([], 10, 1);
@@ -124,4 +126,42 @@ describe("binary search tree operations", () => {
 
     expect(tree).toEqual(original);
   });
+
+it("searches an empty tree and returns -1", () => {
+    expect(searchTree([], 10)).toBe(-1);
+  });
+  
+  it("returns -1 when a search value is absent", () => {
+    let tree: TreeNode[] = [];
+    tree = insertTree(tree, 10, 1);
+    tree = insertTree(tree, 5, 2);
+  
+    expect(searchTree(tree, 99)).toBe(-1);
+  });
+  
+  it("returns an empty result when deleting the only node", () => {
+    const tree = insertTree([], 10, 1);
+  
+    expect(deleteTree(tree, 10)).toEqual([]);
+  });
+  
+  it("handles deletion of a missing value without losing nodes", () => {
+    let tree: TreeNode[] = [];
+    tree = insertTree(tree, 10, 1);
+    tree = insertTree(tree, 5, 2);
+    tree = insertTree(tree, 15, 3);
+  
+    const result = deleteTree(tree, 99);
+  
+    expect(inorderTraversal(result)).toEqual([5, 10, 15]);
+  });
+  
+  it("returns an empty traversal for an empty tree", () => {
+    expect(inorderTraversal([])).toEqual([]);
+  });
+  
+  it("returns null as the root of an empty tree", () => {
+    expect(getTreeRoot([])).toBeNull();
+  });
+  
 });

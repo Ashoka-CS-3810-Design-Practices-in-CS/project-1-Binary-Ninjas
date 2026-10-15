@@ -1,5 +1,12 @@
 import { describe, it, expect } from "vitest";
-import { enqueue, dequeue, peekQueue, clearQueue } from "./queue-operation";
+import {
+  enqueue,
+  dequeue,
+  peekQueue,
+  searchQueue,
+  isQueueEmpty,
+  clearQueue,
+} from "./queue-operation";
 
 // Helper: build a queue by enqueueing values in order, ids 1, 2, 3...
 const build = (...values: number[]) =>
@@ -126,4 +133,35 @@ describe("queue: immutability (React state must never be mutated)", () => {
     a.push({ id: 1, value: 1 } as never);
     expect(b).toEqual([]);
   });
+
+it("throws an error when dequeuing from an empty queue", () => {
+  expect(() => dequeue([])).toThrow(
+    "Cannot dequeue from an empty queue."
+  );
+});
+
+it("throws an error when peeking at an empty queue", () => {
+  expect(() => peekQueue([])).toThrow(
+    "Cannot peek at an empty queue."
+  );
+});
+
+it("searches for a value and returns -1 when absent", () => {
+  const queue = enqueue(enqueue([], 10, 1), 20, 2);
+
+  expect(searchQueue(queue, 20)).toBe(1);
+  expect(searchQueue(queue, 99)).toBe(-1);
+});
+
+it("checks whether the queue is empty", () => {
+  expect(isQueueEmpty([])).toBe(true);
+
+  const queue = enqueue([], 10, 1);
+  expect(isQueueEmpty(queue)).toBe(false);
+});
+
+it("clears the queue", () => {
+  expect(clearQueue()).toEqual([]);
+});
+
 });

@@ -1,5 +1,12 @@
 import { describe, it, expect } from "vitest";
-import { push, pop, peekStack, searchStack, clearStack } from "./stack-operation";
+import {
+    push,
+    pop,
+    peekStack,
+    searchStack,
+    clearStack,
+    isStackEmpty,
+  } from "./stack-operation";
 
 describe("stack operations", () => {
   it("push adds to the top", () => {
@@ -29,5 +36,19 @@ describe("stack operations", () => {
 
   it("clearStack returns an empty stack", () => {
     expect(clearStack()).toEqual([]);
+  });
+  it("throws an error when popping from an empty stack", () => {
+    expect(() => pop([])).toThrow("Cannot pop from an empty stack.");
+  });
+  
+  it("throws an error when peeking at an empty stack", () => {
+    expect(() => peekStack([])).toThrow("Cannot peek at an empty stack.");
+  });
+  
+  it("checks whether the stack is empty", () => {
+    expect(isStackEmpty([])).toBe(true);
+  
+    const stack = push([], 10, 1);
+    expect(isStackEmpty(stack)).toBe(false);
   });
 });
