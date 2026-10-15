@@ -1087,8 +1087,10 @@ export default function GraphVisualizer() {
             <h1 className="text-2xl font-bold tracking-tight text-[#0F6B6D] dark:text-[#FFAB91]">
               Graph Visualizer
             </h1>
-            <p className="text-xs text-[#0F6B6D] dark:text-white">
-              Build graphs and explore BFS and DFS step by step.
+            <p className="text-sm font-bold text-black dark:text-white">
+            A graph is a fundamental non-linear data structure that consists of a finite set of vertices (also called nodes) and a set of edges that connect these vertices. Formally, a graph is denoted as (G = (V, E)), 
+            where (V) represents the collection of vertices and (E) represents the collection of edges. Unlike linear data structures (such as arrays or linked lists) or hierarchical data structures (like trees), graphs have no inherent ordering or single root node. 
+            They are used primarily to model complex, real-world networks and relationships between distinct entities.
             </p>
           </div>
 

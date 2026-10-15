@@ -773,11 +773,11 @@ export default function QueueVisualizer() {
       {/* HEADER */}
       <header className="flex flex-wrap items-center justify-between gap-3 border-b px-4 py-3 sm:px-6">
         <div>
-          <h1 className="text-xl font-bold tracking-tight text-[#0F6B6D] dark:text-[#FFAB91] sm:text-2xl">
+          <h1 className="text-2xl font-bold tracking-tight text-[#0F6B6D] dark:text-[#FFAB91] sm:text-2xl">
             Queue Visualizer
           </h1>
-          <p className="text-xs text-[#0F6B6D] dark:text-white">
-            Explore FIFO operations through an interactive queue.
+          <p className="text-sm font-bold text-black dark:text-white">
+          A queue is a linear data structure that operates on the First-In, First-Out (FIFO) principle, meaning the first element added to the queue will be the first one to be removed. It mimics a real-world line, such as people waiting at a ticket window, where the person who arrives first is served first
           </p>
         </div>
 

@@ -1310,8 +1310,9 @@ export function BinaryTreeVisualizer() {
               Binary Tree Visualizer
             </h1>
 
-            <p className="text-xs text-[#0F6B6D] dark:text-white">
-              Explore BST operations, traversals, pseudocode, and complexity.
+            <p className="text-sm font-bold text-black dark:text-white">
+            A binary tree is a non-linear, hierarchical data structure where each node can have at most two children, commonly referred to as the left child and the right child. 
+            Unlike linear data structures like arrays or linked lists, binary trees store data in a branching parent-child hierarchy.
             </p>
           </div>
 

@@ -649,11 +649,12 @@ export function StackVisualizer() {
       {/* HEADER */}
       <header className="flex flex-wrap items-center justify-between gap-3 border-b px-4 py-3 sm:px-6">
         <div>
-        <h1 className="text-xl font-bold tracking-tight text-[#0F6B6D] dark:text-[#FFAB91] sm:text-2xl">
+        <h1 className="text-2xl font-bold tracking-tight text-[#0F6B6D] dark:text-[#FFAB91] sm:text-2xl">
         Stack Visualizer
          </h1>
-          <p className="text-xs text-[#0F6B6D] dark:text-[#f2f0f0]">
-            Explore LIFO operations through an interactive stack.
+          <p className="text-sm font-bold text-black dark:text-[#f2f0f0]">
+          A Stack is a linear data structure that follows a particular order in which the operations are performed. The order is LIFO(Last In First Out) which implies that the element that is inserted last, comes out first.
+          It behaves like a stack of plates, where the last plate added is the first one to be removed. Pushing an element onto the stack is like adding a new plate on top. Popping an element removes the top plate from the stack.
           </p>
         </div>
         <Badge className="border-red-200 bg-red-50 text-red-700 hover:bg-red-50 dark:border-red-900 dark:bg-red-950/40 dark:text-[#FFAB91]">

@@ -902,8 +902,9 @@ export function LinkedListVisualizer() {
             <h1 className="text-2xl font-bold tracking-tight text-[#0F6B6D]  dark:text-[#FFAB91]">
               Linked List Visualizer
             </h1>
-            <p className="text-xs text-[#0F6B6D] dark:text-white">
-              Explore pointers, operations, pseudocode, and complexity.
+            <p className="text-sm font-bold text-black dark:text-white">
+            linked list is a fundamental linear data structure where elements, called nodes, are stored in non-contiguous memory locations. Unlike arrays, which store elements side-by-side in a single block of memory, each node in a linked list contains its own data and a pointer (or reference) pointing to the location of the next node in the sequence. 
+            This forms a dynamic chain-like structure that can grow or shrink at runtime.
             </p>
           </div>
 

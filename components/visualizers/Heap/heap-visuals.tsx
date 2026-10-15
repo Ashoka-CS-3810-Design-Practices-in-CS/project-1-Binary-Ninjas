@@ -831,11 +831,12 @@ export function HeapVisualizer() {
         <header className="flex flex-wrap items-center justify-between gap-3 border-b py-4">
           <div>
             <h1 className="text-2xl font-bold tracking-tight text-[#0F6B6D] dark:text-[#FFAB91] ">
-              Priority Queues
-            </h1>
-            <p className="text-xs text-[#0F6B6D] dark:text-white">
-              Explore heap operations, array indices, pseudocode, and
-              complexity.
+              Priority Queues Visualizer
+              </h1>
+            <p className="text-sm font-bold text-black dark:text-white">
+            A priority queue is an abstract data type where elements are served based on their priority values rather than their insertion order.
+             A min-heap is a concrete, highly efficient data structure used to implement this abstract concept. In a min-heap-based priority queue, lower numerical values represent higher priority, 
+             meaning the smallest element is always at the front (root) of the queue and is removed first
             </p>
           </div>
 
