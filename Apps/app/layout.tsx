@@ -6,6 +6,7 @@ import "../global.css";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/global/theme-provider";
 import SidebarWrapper from "@/components/global/sidebar-wrapper";
+import FAQ from "@/components/global/faq-button";
 import {
   SidebarInset,
   SidebarProvider,
@@ -48,6 +49,7 @@ export default function RootLayout({
           </SidebarProvider>
 
           <Toaster />
+          <FAQ />
         </ThemeProvider>
       </body>
     </html>

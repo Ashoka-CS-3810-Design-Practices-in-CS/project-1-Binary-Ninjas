@@ -1,5 +1,5 @@
 "use client"
-
+import Link from "next/link"
 import {
   Folder,
   Forward,
@@ -55,15 +55,15 @@ export function NavProjects({
               asChild
               className="dark:text-white dark:hover:text-white"
             >
-              <a
-                href={item.url}
-                className="text-foreground dark:!text-white"
-              >
-                <item.icon className="dark:!text-white" />
-                <span className="dark:!text-white">
-                  {item.name}
-                </span>
-              </a>
+              <Link
+  href={item.url}
+  className="text-foreground dark:!text-white"
+>
+  <item.icon className="dark:!text-white" />
+  <span className="dark:!text-white">
+    {item.name}
+  </span>
+</Link>
             </SidebarMenuButton>
 
             <DropdownMenu>

@@ -1,3 +1,4 @@
+
 "use client"
 
 import { ModeToggle } from "@/components/global/mode-toggle"
@@ -16,7 +17,7 @@ import { usePathname } from "next/navigation"
 const routes = {
   "/": {
     name: "Home",
-    path: "/home",
+    path: "/",
   },
   "/visualizer": {
     name: "Visualizer",
@@ -68,52 +69,61 @@ const routes = {
   },
 }
 
-export function Breadcrumbs({ 
-  action 
-}: { 
-  action?: React.ReactNode 
+export function Breadcrumbs({
+  action,
+}: {
+  action?: React.ReactNode
 }) {
   const pathname = usePathname()
-  
+
   const getBreadcrumbs = () => {
-    const segments = pathname.split('/').filter(Boolean)
+    const segments = pathname.split("/").filter(Boolean)
     const items = []
     let currentPath = ""
-    
-    // Always add home
+
+    // Always show Home
     items.push(
       <BreadcrumbItem key="home">
-        <BreadcrumbLink
-  href="/"
-  className="home-link text-foreground hover:text-foreground">
-  Home
-</BreadcrumbLink>
+        {segments.length === 0 ? (
+          <BreadcrumbPage className="home-link text-foreground">
+            Home
+          </BreadcrumbPage>
+        ) : (
+          <BreadcrumbLink
+            href="/"
+            className="home-link text-foreground hover:text-foreground"
+          >
+            Home
+          </BreadcrumbLink>
+        )}
       </BreadcrumbItem>
     )
 
-    // Add intermediate segments
+    // Add route breadcrumbs
     segments.forEach((segment, index) => {
       currentPath += `/${segment}`
       const route = routes[currentPath as keyof typeof routes]
-      
-      if (route) {
-        items.push(<BreadcrumbSeparator key={`separator-${index}`} />)
 
-        if (index === segments.length - 1) {
-          // Last segment - show as current page
-          items.push(
-            <BreadcrumbItem key={currentPath}>
-              <BreadcrumbPage>{route.name}</BreadcrumbPage>
-            </BreadcrumbItem>
-          )
-        } else {
-          // Intermediate segment - show as link
-          items.push(
-            <BreadcrumbItem key={currentPath}>
-              <BreadcrumbLink href={route.path}>{route.name}</BreadcrumbLink>
-            </BreadcrumbItem>
-          )
-        }
+      if (!route) return
+
+      items.push(
+        <BreadcrumbSeparator key={`separator-${index}`} />
+      )
+
+      if (index === segments.length - 1) {
+        items.push(
+          <BreadcrumbItem key={currentPath}>
+            <BreadcrumbPage>{route.name}</BreadcrumbPage>
+          </BreadcrumbItem>
+        )
+      } else {
+        items.push(
+          <BreadcrumbItem key={currentPath}>
+            <BreadcrumbLink href={route.path}>
+              {route.name}
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+        )
       }
     })
 
@@ -122,14 +132,17 @@ export function Breadcrumbs({
 
   return (
     <header className="sticky top-0 z-50 flex h-20 shrink-0 items-center gap-2 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="flex items-center gap-2 px-4 w-full">
+      <div className="flex w-full items-center gap-2 px-4">
         <SidebarTrigger className="-ml-1 text-foreground hover:text-foreground dark:text-white dark:hover:text-white" />
+
         <Separator orientation="vertical" className="mr-2 h-4" />
+
         <Breadcrumb>
           <BreadcrumbList>
             {getBreadcrumbs()}
           </BreadcrumbList>
         </Breadcrumb>
+
         <div className="ml-auto flex items-center gap-4">
           {action}
           <ModeToggle />

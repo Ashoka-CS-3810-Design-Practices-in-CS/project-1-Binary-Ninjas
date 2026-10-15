@@ -211,6 +211,10 @@
   flex-direction: column;
   overflow: hidden;
 
+  /* Keeps the scene from ever stacking above the top bar */
+  position: relative;
+  z-index: 0;
+
   /* Cancel the layout's p-3 / sm:p-10 so the scene touches every edge */
   margin: -0.75rem;
   width: calc(100% + 1.5rem);
@@ -338,15 +342,6 @@
   }
 }
 
-.mascot-bob-delay {
-  animation-delay: 0.25s, 1.4s;
-}
-
-@keyframes mascot-bob {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-8px); }
-}
-
 .mascot-shadow {
   position: absolute;
   left: 50%;
@@ -365,11 +360,6 @@
   12%      { transform: translateX(-50%) scale(1.1); opacity: 0.6; }
   20%, 80% { transform: translateX(-50%) scale(1); opacity: 0.6; }
   92%      { transform: translateX(-50%) scale(0.3); opacity: 0; }
-}
-
-@keyframes shadow-pulse {
-  0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.6; }
-  50%      { transform: translateX(-50%) scale(0.85); opacity: 0.4; }
 }
 
 /* Flames beside the mascot */
