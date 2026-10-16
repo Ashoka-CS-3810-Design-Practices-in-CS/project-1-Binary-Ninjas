@@ -163,5 +163,4 @@ it("checks whether the queue is empty", () => {
 it("clears the queue", () => {
   expect(clearQueue()).toEqual([]);
 });
-
 });
