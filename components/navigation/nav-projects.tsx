@@ -1,34 +1,15 @@
-"use client"
-import Link from "next/link"
-import {
-  Folder,
-  Forward,
-  MoreHorizontal,
-  Trash2,
-  TreePine,
-  Network,
-  Hash,
-  List,
-  Binary,
-  type LucideIcon,
-} from "lucide-react"
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+"use client"
+
+import Link from "next/link"
+import type { LucideIcon } from "lucide-react"
 
 import {
   SidebarGroup,
   SidebarGroupLabel,
   SidebarMenu,
-  SidebarMenuAction,
   SidebarMenuButton,
   SidebarMenuItem,
-  useSidebar,
 } from "@/components/ui/sidebar"
 
 export function NavProjects({
@@ -42,8 +23,6 @@ export function NavProjects({
     icon: LucideIcon
   }[]
 }) {
-  const { isMobile } = useSidebar()
-
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
       <SidebarGroupLabel>{title}</SidebarGroupLabel>
@@ -56,47 +35,15 @@ export function NavProjects({
               className="dark:text-white dark:hover:text-white"
             >
               <Link
-  href={item.url}
-  className="text-foreground dark:!text-white"
->
-  <item.icon className="dark:!text-white" />
-  <span className="dark:!text-white">
-    {item.name}
-  </span>
-</Link>
-            </SidebarMenuButton>
-
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <SidebarMenuAction showOnHover>
-                  <MoreHorizontal className="dark:text-white" />
-                  <span className="sr-only">More</span>
-                </SidebarMenuAction>
-              </DropdownMenuTrigger>
-
-              <DropdownMenuContent
-                className="w-48 rounded-lg"
-                side={isMobile ? "bottom" : "right"}
-                align={isMobile ? "end" : "start"}
+                href={item.url}
+                className="text-foreground dark:!text-white"
               >
-                <DropdownMenuItem>
-                  <Folder className="text-muted-foreground" />
-                  <span>View Project</span>
-                </DropdownMenuItem>
-
-                <DropdownMenuItem>
-                  <Forward className="text-muted-foreground" />
-                  <span>Share Project</span>
-                </DropdownMenuItem>
-
-                <DropdownMenuSeparator />
-
-                <DropdownMenuItem>
-                  <Trash2 className="text-muted-foreground" />
-                  <span>Delete Project</span>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+                <item.icon className="dark:!text-white" />
+                <span className="dark:!text-white">
+                  {item.name}
+                </span>
+              </Link>
+            </SidebarMenuButton>
           </SidebarMenuItem>
         ))}
       </SidebarMenu>
